@@ -1,5 +1,5 @@
 <h1 align="center">后台管理系统模板</h1>
-<h3 align="center">目前仅是一个基础的实例</h3>
+<h3 align="center">基于 <a href="https://www.naiveui.com/zh-CN/os-theme">Naive UI</a> 的后台管理系统模板, 目前仅是一个基础的实例</h3>
 
 <br>
 
