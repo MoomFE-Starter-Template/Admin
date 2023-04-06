@@ -25,10 +25,10 @@
   const route = useRoute();
 
   /** 获取当前应用的一些环境变量 */
-  const GetAppEnv = () => {
+  function GetAppEnv() {
     app.loadingBar = useLoadingBar();
     app.message = useMessage();
-  };
+  }
 
   // 布局发生改变时, 移除上一个页面的信息弹窗
   //  - 比如登录后的提示 / 退出登录时的提示
