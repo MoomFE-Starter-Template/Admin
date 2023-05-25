@@ -3,11 +3,11 @@
 </template>
 
 <script lang="tsx" setup>
-  import type { FormProps, GridProps } from 'naive-ui';
+  import type { GridProps } from 'naive-ui';
   import { NForm, NGrid, NGridItem } from 'naive-ui';
   import { Comment, Fragment } from 'vue';
 
-  interface Props extends FormProps {
+  interface Props {
     /**
      * 单个栅格分隔宽度
      * @default 260
