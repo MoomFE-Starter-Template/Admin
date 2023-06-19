@@ -83,6 +83,7 @@ export default defineConfig(({ mode }) => {
         ],
         eslintrc: {
           enabled: true,
+          filepath: path.resolve(__dirname, './.eslintrc-auto-import.json'),
         },
       }),
       // 插件调试
