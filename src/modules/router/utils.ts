@@ -1,4 +1,4 @@
-import type { RouteRecordRaw } from 'vue-router';
+import type { RouteRecordRaw, RouterOptions } from 'vue-router';
 import type { MenuMixedOption } from 'naive-ui/es/menu/src/interface';
 import * as icons from './icons';
 import { renderIcon } from '@/utils/render';
@@ -7,14 +7,14 @@ import IconList from '~icons/ant-design/appstore-outlined';
 /**
  * 判断是否是根路由
  */
-export function isRootRoute(route: RouteRecordRaw) {
+export function isRootRoute(route: RouterOptions['routes'][any]) {
   return route.children?.length === 1;
 }
 
 /**
  * 排除无需生成菜单的路由
  */
-export function filterRouter(routes: RouteRecordRaw[]) {
+export function filterRouter(routes: RouterOptions['routes']) {
   return routes
     .filter((route) => {
       return !['/', '/:all(.*)*', '/login'].includes(route.path);
@@ -30,7 +30,7 @@ export function filterRouter(routes: RouteRecordRaw[]) {
  * @param isChildren 是否是子集
  * @returns
  */
-export function generatorMenu(routes: RouteRecordRaw[], isChildren = false): MenuMixedOption[] {
+export function generatorMenu(routes: RouterOptions['routes'], isChildren = false): MenuMixedOption[] {
   return filterRouter(routes).sort(sort).map((route) => {
     const info = isRootRoute(route) ? route.children![0] : route;
     const menuItem: MenuMixedOption = {
