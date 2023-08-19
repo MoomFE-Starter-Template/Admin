@@ -1,5 +1,5 @@
 import type { FormItemRule, FormRules } from 'naive-ui';
-import { deepClone, toArray } from '@moomfe/small-utils';
+import { deepClone, toArray } from 'mixte';
 
 /**
  * 定义一个表单验证规则

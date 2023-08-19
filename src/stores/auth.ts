@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { delay, onceRun, random } from '@moomfe/small-utils';
+import { delay, onceRun, random } from 'mixte';
 
 /** 用户信息状态管理 */
 export const useAuthStore = defineStore('auth', () => {

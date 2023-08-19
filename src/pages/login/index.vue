@@ -1,7 +1,7 @@
 <template>
   <div class="flex">
-    <div class="w-full min-h-screen items-center justify-center" un:flex="~ grow">
-      <div class="w-96 max-w-full" un:p="x-3 y-6">
+    <div class="w-full min-h-screen items-center justify-center" flex="~ grow">
+      <div class="w-96 max-w-full" p="x-3 y-6">
         <!-- Logo -->
         <LogoTitle class="gap-5 text-3xl" />
         <!-- Form -->
@@ -14,7 +14,7 @@
           <NFormItem path="username" first>
             <n-input v-model:value="form.username" placeholder="请输入用户名" @keyup.enter="login">
               <template #prefix>
-                <div class="w-[1.2em] h-full flex justify-center items-center" un:i-ant-design-user-outlined />
+                <i-ant-design-user-outlined class="size-1.2em" />
               </template>
             </n-input>
           </NFormItem>
@@ -22,7 +22,7 @@
           <NFormItem path="password" first>
             <n-input v-model:value="form.password" type="password" placeholder="请输入密码" show-password-on="mousedown" @keyup.enter="login">
               <template #prefix>
-                <div class="w-[1.2em] h-full flex justify-center items-center" un:i-ant-design-user-outlined />
+                <i-ant-design-lock-outlined class="size-1.2em" />
               </template>
             </n-input>
           </NFormItem>
@@ -38,7 +38,7 @@
 
 <script lang="ts" setup>
   import { useMessage } from 'naive-ui';
-  import { onceRun } from '@moomfe/small-utils';
+  import { onceRun } from 'mixte';
   import { defineFormValidateRules } from '@/utils/defineFormValidateRules';
 
   const router = useRouter();

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-16 items-center px-5" un:flex="~ gap-3">
+  <div class="w-full h-16 items-center px-5" flex="~ gap-3">
     <!-- 面包屑导航 -->
     <n-breadcrumb>
       <template v-for="item in breadcrumb" :key="item.name">

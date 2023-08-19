@@ -24,7 +24,7 @@
               // 默认插槽内容
               {
                 default: () => (
-                  <div class="size-full p-3" un:flex="~ col gap-3">
+                  <div class="size-full p-3" flex="~ col gap-3">
                     {/* 头部区域 */}
                     {slots.header && (
                       <div>{{ default: slots.header }}</div>

@@ -12,7 +12,7 @@
 
     <!-- 主内容区域 -->
     <n-layout>
-      <div class="h-full" un:flex="~ col">
+      <div class="h-full" flex="~ col">
         <!-- 顶部菜单栏 -->
         <n-layout-header class="z-1">
           <Navbar />
@@ -20,7 +20,7 @@
         <!-- 内容区域 -->
         <div ref="contentRef" class="h-full flex-grow overflow-hidden">
           <n-scrollbar class="h-full">
-            <div class="flex transition-colors duration-colors" un:bg="gray-100 dark:black" :style="{ minHeight: `${contentHeight}px` }">
+            <div class="flex transition-colors duration-colors" bg="gray-100 dark:black" :style="{ minHeight: `${contentHeight}px` }">
               <div class="w-full flex-grow">
                 <router-view />
               </div>
