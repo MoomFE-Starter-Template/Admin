@@ -1,8 +1,11 @@
 import { defineStore } from 'pinia';
 import { delay, onceRun, random } from 'mixte';
+import { app } from '@/shared/env';
 
 /** 用户信息状态管理 */
 export const useAuthStore = defineStore('auth', () => {
+  const router = useRouter();
+
   /** 本地存储的用户信息 */
   const info = toReactive(
     useLocalStorage('auth', {
@@ -24,11 +27,15 @@ export const useAuthStore = defineStore('auth', () => {
   });
 
   const logout = onceRun(async () => {
+    app.message?.loading('正在退出登录...');
+
     await delay(
       random(120, 360),
     );
 
     info.username = '';
+
+    router.push({ name: 'Login' });
   });
 
   return {
