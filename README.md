@@ -90,13 +90,19 @@
   pnpm dev # 如果你没装过 pnpm, 可以先运行: npm install -g pnpm
 ```
 
+### 路由鉴权
+
+> - 通过在路由中配置 `meta.requiresAuth` 来判断是否需要鉴权
+>   - 若未配置 `meta.requiresAuth`, 则默认为 `true`
+>   - 路由鉴权的逻辑在 `src/modules/router/index.ts` 中
+
 ### 菜单栏
 
 > - 菜单为遍历所有路由生成的
->   - 相关代码在 `src/modules/router/utils.ts` 中
 >   - 但是排除以下情况的路由
 >     - `path: ['/', '/:all(.*)*', '/login']`
 >     - `meta.hidden: true`
+>   - 相关代码在 `src/modules/router/utils.ts` 中
 >
 > - 菜单栏图标
 >   - 首先在 `src/modules/router/icons.ts` 引入图标后导出, 导出名为图标名称

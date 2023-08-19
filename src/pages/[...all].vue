@@ -19,3 +19,8 @@
 <script lang="ts" setup>
   const router = useRouter();
 </script>
+
+<route lang="yaml">
+meta:
+  requiresAuth: false
+</route>
