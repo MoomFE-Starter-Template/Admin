@@ -89,3 +89,18 @@
 ```bash
   pnpm dev # 如果你没装过 pnpm, 可以先运行: npm install -g pnpm
 ```
+
+### 菜单栏
+
+> - 菜单为遍历所有路由生成的
+>   - 相关代码在 `src/modules/router/utils.ts` 中
+>   - 但是排除以下情况的路由
+>     - `path: ['/', '/:all(.*)*', '/login']`
+>     - `meta.hidden: true`
+>
+> - 菜单栏图标
+>   - 首先在 `src/modules/router/icons.ts` 引入图标后导出, 导出名为图标名称
+>   - 为路由添加 `meta.icon` 属性, 值为图标名称
+>
+> - 菜单排序
+>   - 为路由添加 `meta.sort` 属性, 可为同一文件夹下的路由进行排序
