@@ -11,7 +11,7 @@
     </n-layout-sider>
 
     <!-- 主内容区域 -->
-    <n-layout ref="rootRef">
+    <n-layout>
       <div class="h-full" un:flex="~ col">
         <!-- 顶部菜单栏 -->
         <n-layout-header class="z-1">

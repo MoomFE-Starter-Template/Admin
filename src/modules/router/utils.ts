@@ -53,5 +53,5 @@ function sort(a: RouteRecordRaw, b: RouteRecordRaw) {
   const aInfo = isRootRoute(a) ? a.children![0] : a;
   const bInfo = isRootRoute(b) ? b.children![0] : b;
 
-  return (aInfo.meta?.sort as number ?? Infinity) - (bInfo.meta?.sort as number ?? Infinity);
+  return (aInfo.meta?.sort as number ?? Number.POSITIVE_INFINITY) - (bInfo.meta?.sort as number ?? Number.POSITIVE_INFINITY);
 }
