@@ -17,7 +17,6 @@
 <script lang="ts" setup>
   import { useLoadingBar, useMessage } from 'naive-ui';
   import { app } from '@/shared/env';
-  import { settings } from '@/settings';
 
   /** 主题相关 */
   const { theme, themeOverrides, zhCN, dateZhCN } = useNaiveTheme();
@@ -35,6 +34,4 @@
   watch(() => route.meta.layout, () => {
     useTimeoutFn(() => app.message?.destroyAll(), 360);
   });
-
-  useTitle(settings.title);
 </script>

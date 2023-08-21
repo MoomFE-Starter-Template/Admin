@@ -100,6 +100,12 @@
 > - 项目名称
 > - 默认值: `'NaiveUI Admin'`
 
+#### `titleTemplate` ( `string` )
+
+> - 标题名称模板, 用于自定义页面标题的格式, 使用 `':title'` 代表当前路由的 `meta.title` 属性
+> - 默认值: `':title | ${settings.name}'`
+
+
 ### 路由鉴权
 
 > - 通过在路由中配置 `meta.requiresAuth` 来判断是否需要鉴权
