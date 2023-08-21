@@ -22,22 +22,24 @@
 </template>
 
 <script lang="ts" setup>
+  import type { DropdownMixedOption } from 'naive-ui/es/dropdown/src/interface';
+
   const route = useRoute();
 
   const auth = useAuthStore();
 
   /** 面包屑 */
   const breadcrumb = computed(() => {
-    return route.matched.filter(item => item.meta?.title);
+    return route.matched.slice(1, Number.POSITIVE_INFINITY).filter(item => item.meta?.title);
   });
 
   /** 用户下拉菜单 */
-  const dropdownOptions = reactive([
+  const dropdownOptions = reactive<DropdownMixedOption[]>([
     {
       label: '退出登录',
       value: 'logout',
       props: {
-        onclick: () => auth.logout(),
+        onClick: () => auth.logout(),
       },
     },
   ]);

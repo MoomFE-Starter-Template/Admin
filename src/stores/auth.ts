@@ -30,7 +30,7 @@ export const useAuthStore = defineStore('auth', () => {
     app.message?.loading('正在退出登录...');
 
     await delay(
-      random(120, 360),
+      random(360, 1000),
     );
 
     info.username = '';
