@@ -1,7 +1,7 @@
 <template>
   <div class="w-full flex items-center justify-center gap-2 font-mono overflow-hidden px-[.5em]">
     <Logo class="flex-none" :size="props.logoSize" />
-    <div class="truncate">{{ settings.title }}</div>
+    <div class="truncate">{{ settings.name }}</div>
   </div>
 </template>
 

@@ -90,6 +90,16 @@
   pnpm dev # 如果你没装过 pnpm, 可以先运行: npm install -g pnpm
 ```
 
+### 项目配置
+
+  - 配置文件地址: [src/settings.ts](./src/settings.ts)
+  - 类型定义: [src/types.ts](./src/types.ts)
+
+#### `name` ( `string` ) ( 必填 )
+
+> - 项目名称
+> - 默认值: `'NaiveUI Admin'`
+
 ### 路由鉴权
 
 > - 通过在路由中配置 `meta.requiresAuth` 来判断是否需要鉴权
