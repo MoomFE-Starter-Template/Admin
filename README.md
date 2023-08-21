@@ -94,7 +94,7 @@
 
 > - 通过在路由中配置 `meta.requiresAuth` 来判断是否需要鉴权
 >   - 若未配置 `meta.requiresAuth`, 则默认为 `true`
->   - 路由鉴权的逻辑在 `src/modules/router/index.ts` 中
+>   - 路由鉴权的逻辑在 [src/modules/router/index.ts](./src/modules/router/index.ts) 中
 
 ### 菜单栏
 
@@ -102,10 +102,10 @@
 >   - 但是排除以下情况的路由
 >     - `path: ['/', '/:all(.*)*', '/login']`
 >     - `meta.hidden: true`
->   - 相关代码在 `src/modules/router/utils.ts` 中
+>   - 相关代码在 [src/modules/router/utils.ts](./src/modules/router/utils.ts) 中
 >
 > - 菜单栏图标
->   - 首先在 `src/modules/router/icons.ts` 引入图标后导出, 导出名为图标名称
+>   - 首先在 [src/modules/router/icons.ts](./src/modules/router/icons.ts) 引入图标后导出, 导出名为图标名称
 >   - 为路由添加 `meta.icon` 属性, 值为图标名称
 >
 > - 菜单排序
