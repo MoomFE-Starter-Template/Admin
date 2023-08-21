@@ -90,30 +90,30 @@
   pnpm dev # 如果你没装过 pnpm, 可以先运行: npm install -g pnpm
 ```
 
-### 项目配置
+## 项目配置
 
   - 配置文件地址: [src/settings.ts](./src/settings.ts)
   - 类型定义: [src/types.ts](./src/types.ts)
 
-#### `name` ( `string` ) ( 必填 )
+### `name` ( `string` ) ( 必填 )
 
 > - 项目名称
 > - 默认值: `'NaiveUI Admin'`
 
-#### `titleTemplate` ( `string` )
+### `titleTemplate` ( `string` )
 
 > - 标题名称模板, 用于自定义页面标题的格式, 使用 `':title'` 代表当前路由的 `meta.title` 属性
 > - 默认值: `':title | ${settings.name}'`
 > - 设置标题的相关代码在 [src/modules/router/index.ts](./src/modules/router/index.ts) 中
 
 
-### 路由鉴权
+## 路由鉴权
 
 > - 通过在路由中配置 `meta.requiresAuth` 来判断是否需要鉴权
 >   - 若未配置 `meta.requiresAuth`, 则默认为 `true`
 >   - 路由鉴权的相关代码在 [src/modules/router/index.ts](./src/modules/router/index.ts) 中
 
-### 菜单栏
+## 菜单栏
 
 > - 菜单为遍历所有路由生成的
 >   - 但是排除以下情况的路由
