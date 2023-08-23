@@ -13,7 +13,7 @@ import Pages from 'vite-plugin-pages';
 import Layouts from 'vite-plugin-vue-layouts';
 import Inspect from 'vite-plugin-inspect';
 import { SmallUtilsComponentsResolver } from '@moomfe/small-utils/vite-config';
-import { MixteUseAutoImport } from '@mixte/use/dist/register';
+import { MixteUseAutoImport } from '@mixte/use/register';
 
 export default defineConfig(({ mode }) => {
   /** 是否是开发模式 */
