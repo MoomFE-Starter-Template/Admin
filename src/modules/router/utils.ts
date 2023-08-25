@@ -39,8 +39,10 @@ export function generatorMenu(routes: RouterOptions['routes'], isChildren = fals
       icon: renderIcon(icons[info.meta?.icon as keyof typeof icons] || (isChildren ? null : IconList)),
     };
 
-    if (info.children?.length)
+    if (info.children?.length) {
       menuItem.children = generatorMenu(info.children, true);
+      menuItem.children.length || delete menuItem.children;
+    }
 
     return menuItem;
   });
