@@ -21,15 +21,6 @@
           </NuxtLink>
         </template>
       </ElPopover>
-      <!-- 登录鉴权 -->
-      <ElPopover>
-        {{ t('requires-auth-tip') }}
-        <template #reference>
-          <RouterLink to="/demo/requiresAuth">
-            <ElButton text bg>{{ t('requires-auth') }}</ElButton>
-          </RouterLink>
-        </template>
-      </ElPopover>
     </div>
   </ClientOnly>
 </template>

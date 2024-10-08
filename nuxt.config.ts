@@ -16,6 +16,8 @@ export default defineNuxtConfig({
     '@mixte/use/nuxt',
   ],
 
+  ssr: false,
+
   css: [
     '@/assets/css/index.scss',
   ],

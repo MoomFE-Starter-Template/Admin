@@ -4,8 +4,8 @@ export default defineNuxtRouteMiddleware(async (to) => {
   // 白名单页面不需要鉴权
   if (config.requiresAuthWhiteList?.includes(to.path)) return;
 
-  // 是否需要鉴权, 默认不需要
-  const requiresAuth = to.meta.requiresAuth ?? false;
+  // 是否需要鉴权, 默认需要
+  const requiresAuth = to.meta.requiresAuth ?? true;
 
   if (!requiresAuth) return;
 
