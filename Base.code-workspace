@@ -1,0 +1,128 @@
+{
+  "folders": [
+    {
+      "name": "Base",
+      "path": "."
+    },
+    {
+      "name": "Assets",
+      "path": "app/assets"
+    },
+    {
+      "name": "Shared",
+      "path": "app/shared"
+    },
+    {
+      "name": "Apis",
+      "path": "app/apis"
+    },
+    {
+      "name": "Lib",
+      "path": "app/lib"
+    },
+    {
+      "name": "Utils",
+      "path": "app/utils"
+    },
+    {
+      "name": "Stores",
+      "path": "app/stores"
+    },
+    {
+      "name": "Composables",
+      "path": "app/composables"
+    },
+    {
+      "name": "Components",
+      "path": "app/components"
+    },
+    {
+      "name": "Components Private",
+      "path": "app/components-private"
+    },
+    {
+      "name": "Plugins",
+      "path": "app/plugins"
+    },
+    {
+      "name": "Middleware",
+      "path": "app/middleware"
+    },
+    {
+      "name": "Locales",
+      "path": "app/locales"
+    },
+    {
+      "name": "Layouts",
+      "path": "app/layouts"
+    },
+    {
+      "name": "Pages",
+      "path": "app/pages"
+    }
+  ],
+  "settings": {
+    // 禁用默认格式化程序, 使用 ESlint 代替
+    "prettier.enable": false,
+    "editor.formatOnSave": false,
+
+    // 自动修复
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "never"
+    },
+
+    // 为所有支持的语言启用 ESlint
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "vue",
+      "html",
+      "markdown",
+      "json",
+      "jsonc",
+      "yaml",
+      "toml",
+      "gql",
+      "graphql"
+    ],
+
+    "eslint.quiet": true,
+
+    "unocss.autocomplete.matchType": "fuzzy",
+    "unocss.remToPxPreview": true,
+
+    "files.exclude": {
+      ".nuxt": true,
+      ".output": true,
+      "*.code-workspace": true,
+      "app/apis": true,
+      "app/assets": true,
+      "app/components": true,
+      "app/components-private": true,
+      "app/composables": true,
+      "app/layouts": true,
+      "app/lib": true,
+      "app/locales": true,
+      "app/middleware": true,
+      "app/modules": true,
+      "app/pages": true,
+      "app/plugins": true,
+      "app/shared": true,
+      "app/stores": true,
+      "app/utils": true,
+      "node_modules": true
+    },
+
+    "i18n-ally.localesPaths": [
+      "app/locales",
+      "../locales"
+    ],
+    "i18n-ally.enabledFrameworks": ["vue-sfc", "vue"],
+    "i18n-ally.sourceLanguage": "cn",
+    "i18n-ally.displayLanguage": "cn",
+    "i18n-ally.pathMatcher": "{locale}/{namespace}.{ext}"
+  }
+}
