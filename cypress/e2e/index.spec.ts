@@ -100,6 +100,6 @@ context('首页', () => {
     cy.get('button[title="跳转到 Github"]')
       .children('a')
       .should('have.attr', 'target', '_blank')
-      .should('have.attr', 'href', 'https://github.com/MoomFE-Starter-Template/Base');
+      .should('have.attr', 'href', 'https://github.com/MoomFE-Starter-Template/Admin');
   });
 });

@@ -29,7 +29,7 @@
 
     <!-- 跳转到 Github -->
     <button :title="t('github')">
-      <a href="https://github.com/MoomFE-Starter-Template/Base" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/MoomFE-Starter-Template/Admin" target="_blank" rel="noopener noreferrer">
         <i-mdi-github />
       </a>
     </button>

@@ -6,7 +6,7 @@
 
 会根据当前语言设置 `html` 标签的 `lang` 属性, 及对 `title` 进行国际化处理, 相关代码在[这里](./app/plugins/set-i18n-head.ts), 默认网站标题的配置在[这个](../../app/app.config.ts)文件
 
-项目使用 VsCode 的 [i18n-ally](https://github.com/lokalise/i18n-ally) 插件改善国际化体验, 默认显示语言为 `cn`, 相关配置在 [.vscode/settings.json](../../.vscode/settings.json) 文件和 [Base.code-workspace](../../Base.code-workspace) 文件中
+项目使用 VsCode 的 [i18n-ally](https://github.com/lokalise/i18n-ally) 插件改善国际化体验, 默认显示语言为 `cn`, 相关配置在 [.vscode/settings.json](../../.vscode/settings.json) 文件和 [Admin.code-workspace](../../Admin.code-workspace) 文件中
 
 所有功能可根据需求自行修改
 
