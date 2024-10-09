@@ -56,6 +56,9 @@ importers:
       vue:
         specifier: ^3.5.11
         version: 3.5.11(typescript@5.6.2)
+      vue-echarts:
+        specifier: ^7.0.3
+        version: 7.0.3(@vue/runtime-core@3.5.11)(echarts@5.5.1)(vue@3.5.11(typescript@5.6.2))
     devDependencies:
       '@element-plus/nuxt':
         specifier: ^1.0.10
@@ -5053,6 +5056,17 @@ packages:
   vue-bundle-renderer@2.1.0:
     resolution: {integrity: sha512-uZ+5ZJdZ/b43gMblWtcpikY6spJd0nERaM/1RtgioXNfWFbjKlUwrS8HlrddN6T2xtptmOouWclxLUkpgcVX3Q==}
 
+  vue-demi@0.13.11:
+    resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
+    engines: {node: '>=12'}
+    hasBin: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
     engines: {node: '>=12'}
@@ -5066,6 +5080,16 @@ packages:
 
   vue-devtools-stub@0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}
+
+  vue-echarts@7.0.3:
+    resolution: {integrity: sha512-/jSxNwOsw5+dYAUcwSfkLwKPuzTQ0Cepz1LxCOpj2QcHrrmUa/Ql0eQqMmc1rTPQVrh2JQ29n2dhq75ZcHvRDw==}
+    peerDependencies:
+      '@vue/runtime-core': ^3.0.0
+      echarts: ^5.5.1
+      vue: ^2.7.0 || ^3.1.1
+    peerDependenciesMeta:
+      '@vue/runtime-core':
+        optional: true
 
   vue-eslint-parser@9.4.3:
     resolution: {integrity: sha512-2rYRLWlIpaiN8xbPiDyXZXRgLGOtWxERV7ND5fFAv5qo1D2N9Fu9MNajBNc6o13lZ+24DAWCkQCvj4klgmcITg==}
@@ -11145,11 +11169,25 @@ snapshots:
     dependencies:
       ufo: 1.5.4
 
+  vue-demi@0.13.11(vue@3.5.11(typescript@5.6.2)):
+    dependencies:
+      vue: 3.5.11(typescript@5.6.2)
+
   vue-demi@0.14.10(vue@3.5.11(typescript@5.6.2)):
     dependencies:
       vue: 3.5.11(typescript@5.6.2)
 
   vue-devtools-stub@0.1.0: {}
+
+  vue-echarts@7.0.3(@vue/runtime-core@3.5.11)(echarts@5.5.1)(vue@3.5.11(typescript@5.6.2)):
+    dependencies:
+      echarts: 5.5.1
+      vue: 3.5.11(typescript@5.6.2)
+      vue-demi: 0.13.11(vue@3.5.11(typescript@5.6.2))
+    optionalDependencies:
+      '@vue/runtime-core': 3.5.11
+    transitivePeerDependencies:
+      - '@vue/composition-api'
 
   vue-eslint-parser@9.4.3(eslint@9.12.0(jiti@2.0.0)):
     dependencies:

@@ -34,7 +34,8 @@
     "pinia": "^2.2.4",
     "primevue": "^4.0.7",
     "theme-colors": "^0.1.0",
-    "vue": "^3.5.11"
+    "vue": "^3.5.11",
+    "vue-echarts": "^7.0.3"
   },
   "devDependencies": {
     "@element-plus/nuxt": "^1.0.10",

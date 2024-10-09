@@ -3,15 +3,17 @@
 <template>
   <div size-full flex="~ gap-4" bg="#f2f3f5 dark:#3a3a3d" p-5>
     <!-- 左侧区域 -->
-    <el-card shadow="never" class="flex-grow b-none!">
-      <div text-xl>
-        欢迎回来! {{ auth.info.data?.name }}
-      </div>
-      <el-divider class="mt-5!" />
-      <DataPanel />
-      <el-divider />
-      <ContentChart />
-    </el-card>
+    <div flex-grow>
+      <el-card shadow="never" class="b-none!">
+        <div text-xl>
+          欢迎回来! {{ auth.info.data?.name }}
+        </div>
+        <el-divider class="mt-5!" />
+        <DataPanel />
+        <el-divider />
+        <ContentChart />
+      </el-card>
+    </div>
     <!-- 右侧区域 -->
     <div w-70 flex-none>
       <el-card shadow="never" class="b-none!">
