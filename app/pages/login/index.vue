@@ -37,6 +37,9 @@
 
   const { t } = useI18n();
 
+  definePageMeta({
+    layout: false,
+  });
   useHead({
     title: () => t('login.login'),
   });

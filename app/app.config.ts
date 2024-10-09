@@ -10,12 +10,12 @@ export default defineAppConfig({
    * 网站标题模板
    *  - 用于自定义拼接网站标题生成最终的网站标题 ( 比如全局添加前缀后缀等 )
    */
-  titleTemplate: (title?: string) => `${title ?? defaultTitle} - MoomFE`,
+  titleTemplate: (title?: string) => `${title ?? defaultTitle} - MoomFE Admin`,
   /**
    * 默认跳转页
    *  - 用于登录后的默认跳转
    */
-  defaultRedirectPath: '/',
+  defaultRedirectPath: '/dashboard/workplace',
   /**
    * 登录页
    *  - 用户用户鉴权失效时的跳转
