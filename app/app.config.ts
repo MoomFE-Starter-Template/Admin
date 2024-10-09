@@ -1,3 +1,7 @@
+// @unocss-include
+
+import type { MenuItem } from '~~/layers/admin-kit/app/types/menu';
+
 /** 默认网站标题 */
 const defaultTitle = 'index.title';
 
@@ -21,8 +25,32 @@ export default defineAppConfig({
    *  - 用户用户鉴权失效时的跳转
    */
   loginPath: '/login',
+
   /**
    * 路由鉴权的白名单页面列表
    */
   requiresAuthWhiteList: ['/login'],
+
+  /**
+   * 后台管理菜单栏宽度
+   */
+  adminMenuWidth: '220px',
+  /**
+   * 后台管理菜单列表
+   */
+  adminMenu: <MenuItem[]>[
+    {
+      label: '仪表盘',
+      icon: 'i-ant-design-dashboard-outlined',
+      children: [
+        { label: '工作台', to: '/dashboard/workplace' },
+        { label: '统计页', to: '/dashboard/statistics' },
+      ],
+    },
+    {
+      label: 'Github',
+      to: 'https://github.com/MoomFE-Starter-Template/Admin',
+      icon: 'i-logos-github-icon',
+    },
+  ],
 });

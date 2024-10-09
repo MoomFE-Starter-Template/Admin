@@ -4,8 +4,7 @@
 
 <script lang="ts" setup>
   const config = useAppConfig();
+  const router = useRouter();
 
-  defineRouteRules({
-    redirect: config.defaultRedirectPath,
-  });
+  router.replace(config.defaultRedirectPath);
 </script>
