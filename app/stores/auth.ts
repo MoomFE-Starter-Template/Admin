@@ -1,5 +1,6 @@
 import { getUserInfo, logout as toLogout, usernameLogin, type UsernameLoginData } from '@/apis/auth';
 import { accessToken } from '@/shared/env';
+import { delay } from 'mixte';
 
 export const useAuthStore = defineStore('auth', () => {
   /** 是否登录 */
@@ -31,6 +32,9 @@ export const useAuthStore = defineStore('auth', () => {
       accessToken.value = '';
       if (showToast) {
         ElMessage.success('退出登录成功');
+        delay(666).then(() => {
+          location.reload();
+        });
       }
     });
   });
