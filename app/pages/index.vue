@@ -3,8 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-  const config = useAppConfig();
-  const router = useRouter();
-
-  router.replace(config.defaultRedirectPath);
+  // 根目录页面已重定向到默认跳转页
+  // 相关逻辑在 ../middleware/index.global.ts
+  // 不需要可删除
 </script>
