@@ -32,7 +32,15 @@ export default defineAppConfig({
   requiresAuthWhiteList: ['/login'],
 
   /**
+   * 菜单栏模式
+   *  - left: 左侧菜单栏
+   *  - top: 顶部菜单栏
+   *  - mix: 混合菜单栏
+   */
+  adminMenuMode: 'left' as 'left' | 'top' | 'mix',
+  /**
    * 后台管理菜单栏宽度
+   *   - 仅在 adminMenuMode 为 left 或 mix 时有效
    */
   adminMenuWidth: '220px',
   /**
