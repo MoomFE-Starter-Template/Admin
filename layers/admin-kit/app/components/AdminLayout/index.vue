@@ -9,12 +9,18 @@
           {{ t(config.defaultTitle) }}
         </el-aside>
         <!-- 导航栏内容区域 -->
-        <el-main style="--el-main-padding: 0">
-          <AdminMenu
-            v-if="['top', 'mix'].includes(config.adminMenuMode)"
-            :is-mix-top="config.adminMenuMode === 'mix'" horizontal
-            @select-mix-top="item => mixSideMenu = item"
-          />
+        <el-main class="flex! gap-5 pr-5!" style="--el-main-padding: 0">
+          <div flex-grow overflow-hidden>
+            <AdminMenu
+              v-if="['top', 'mix'].includes(config.adminMenuMode)"
+              :is-mix-top="config.adminMenuMode === 'mix'" horizontal
+              @select-mix-top="item => mixSideMenu = item"
+            />
+          </div>
+
+          <div h-full flex="~ items-center none gap-3">
+            <HeaderToolbar />
+          </div>
         </el-main>
       </el-container>
     </el-header>
@@ -37,6 +43,7 @@
 
 <script lang="ts" setup>
   import type { MenuItem } from '../../types/menu';
+  import HeaderToolbar from './HeaderToolbar.vue';
 
   const config = useAppConfig();
 
