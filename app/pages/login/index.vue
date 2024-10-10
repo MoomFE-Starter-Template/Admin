@@ -39,9 +39,7 @@
 
   definePageMeta({
     layout: false,
-  });
-  useHead({
-    title: () => t('login.login'),
+    title: 'login.login',
   });
 
   const config = useAppConfig();

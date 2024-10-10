@@ -1,7 +1,7 @@
 <!-- 工作台页面 -->
 
 <template>
-  <div size-full flex="~ gap-4" bg="#f2f3f5 dark:#3a3a3d" p-5>
+  <div size-full flex="~ gap-4" p-5>
     <!-- 左侧区域 -->
     <div flex-grow>
       <el-card shadow="never" class="b-none!">
@@ -31,7 +31,7 @@
   import QuickOperation from './components/QuickOperation.vue';
   import RecentlyVisited from './components/RecentlyVisited.vue';
 
-  useHead({
+  definePageMeta({
     title: '工作台',
   });
 

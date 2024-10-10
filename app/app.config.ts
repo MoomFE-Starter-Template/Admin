@@ -32,15 +32,14 @@ export default defineAppConfig({
   requiresAuthWhiteList: ['/login'],
 
   /**
-   * 菜单栏模式
+   * 后台管理菜单栏模式
    *  - left: 左侧菜单栏
    *  - top: 顶部菜单栏
    *  - mix: 混合菜单栏
    */
   adminMenuMode: 'left' as 'left' | 'top' | 'mix',
   /**
-   * 后台管理菜单栏宽度
-   *   - 仅在 adminMenuMode 为 left 或 mix 时有效
+   * 后台管理左侧菜单栏宽度
    */
   adminMenuWidth: '220px',
   /**
@@ -61,4 +60,21 @@ export default defineAppConfig({
       icon: 'i-logos-github-icon',
     },
   ],
+
+  /**
+   * 后台管理启用多页签
+   */
+  adminMultiTabs: true,
+  /**
+   * 后台管理多页签是否保存在浏览器缓存中 ( 刷新页面不丢失页签列表 )
+   */
+  adminMultiTabsCache: true,
+  /**
+   * 后台管理主页页签路径
+   */
+  adminMultiTabsHomePath: '/dashboard/workplace',
+  /**
+   * 后台管理多页签是否固定首页页签
+   */
+  adminMultiTabsFixedHome: true,
 });
