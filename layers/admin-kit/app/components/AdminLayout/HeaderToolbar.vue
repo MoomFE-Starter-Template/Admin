@@ -1,13 +1,13 @@
 <template>
   <!-- 跳转到 Github -->
-  <el-button text bg circle :title="t('github')">
+  <el-button size="large" text bg circle :title="t('github')">
     <a href="https://github.com/MoomFE-Starter-Template/Admin" target="_blank" rel="noopener noreferrer">
       <i-mdi-github />
     </a>
   </el-button>
 
   <!-- 切换深色模式 -->
-  <el-button text bg circle :title="t('toggle-dark-mode')" @click="theme.toggle">
+  <el-button size="large" text bg circle :title="t('toggle-dark-mode')" @click="theme.toggle">
     <i-mdi-theme-light-dark v-if="theme.value === 'system'" />
     <i-ph-moon v-else-if="theme.value === 'dark'" />
     <i-ic-outline-wb-sunny v-else />
@@ -15,7 +15,7 @@
 
   <!-- 切换语言 -->
   <el-dropdown :title="t('toggle-language')" @command="code => setLocale(code)">
-    <el-button text bg circle>
+    <el-button size="large" text bg circle>
       <i-ion-language />
     </el-button>
 
@@ -30,7 +30,12 @@
 
   <!-- 用户信息 -->
   <el-dropdown @command="onCommand">
-    <el-avatar :size="32" :src="auth.info.data?.avatar" :icon="UserFilled" />
+    <el-button class="pl-5px! pr-3!" size="large" text bg round>
+      <div flex="~ items-center gap-2">
+        <el-avatar :size="30" :src="auth.info.data?.avatar" :icon="UserFilled" />
+        {{ auth.info.data?.name }}
+      </div>
+    </el-button>
 
     <template #dropdown>
       <el-dropdown-menu>
@@ -61,6 +66,13 @@
     }
   }
 </script>
+
+<style lang="sass" scoped>
+  .el-button + .el-button
+    @apply ml-0
+  .el-button svg
+    @apply text-lg
+</style>
 
 <i18n lang="yaml">
   cn:
