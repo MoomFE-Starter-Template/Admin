@@ -54,14 +54,8 @@
 
   const config = useAppConfig();
 
-  const route = useRoute();
-
   const { t } = useI18n();
 
   /** 混合模式的侧边菜单 */
   const mixSideMenu = ref<MenuItem>();
-
-  useHead({
-    title: () => t(route.meta.title ?? config.defaultTitle, 1, { missingWarn: false }),
-  });
 </script>

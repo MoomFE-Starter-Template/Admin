@@ -1,3 +1,4 @@
+import type { Router } from 'vue-router';
 import type { MenuItem } from '../../types/menu';
 
 /**
@@ -32,3 +33,19 @@ export function getMenuFirstLink(children: MenuItem[]): string | undefined {
 
   return link;
 }
+
+export function initMenu(menu: MenuItem[], router: Router): MenuItem[] {
+  return menu.map((item) => {
+    if (Array.isArray(item.children)) {
+      return {
+        ...item,
+        children: initMenu(item.children, router),
+      };
+    }
+
+    return {
+      ...item,
+      label: item.label ?? router.resolve(item.to!).meta.title ?? item.to,
+    };
+  });
+};

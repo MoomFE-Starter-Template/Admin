@@ -50,8 +50,8 @@ export default defineAppConfig({
       label: '仪表盘',
       icon: 'i-ant-design-dashboard-outlined',
       children: [
-        { label: '工作台', to: '/dashboard/workplace' },
-        { label: '统计页', to: '/dashboard/statistics' },
+        { to: '/dashboard/workplace' },
+        { to: '/dashboard/statistics' },
       ],
     },
     {

@@ -17,7 +17,7 @@
   import type { MenuItem } from '../../types/menu';
   import { ElIcon, ElMenuItem, ElSubMenu } from 'element-plus';
   import { isString, toArray } from 'mixte';
-  import { getMenuFirstLink, isMenuChildrenActive } from './utils';
+  import { getMenuFirstLink, initMenu, isMenuChildrenActive } from './utils';
 
   interface Props {
     /** 水平模式的菜单 */
@@ -40,18 +40,23 @@
   const { t } = useI18n();
 
   const route = useRoute();
+  const router = useRouter();
+
+  const configMenu = computed(() => {
+    return initMenu(config.adminMenu ?? [], router);
+  });
 
   const menu = computed((): MenuItem[] => {
     if (props.isMixSide) {
       return toArray(props.mixSideMenu);
     }
-    return config.adminMenu ?? [];
+    return configMenu.value;
   });
 
   const activeMenu = computed(() => {
     // 混合模式的顶部菜单仅显示一级菜单, 那么子节点的激活状态也需要计算
     if (props.isMixTop) {
-      const activeMenu = config.adminMenu.find((item) => {
+      const activeMenu = configMenu.value.find((item) => {
         return Array.isArray(item.children) ? isMenuChildrenActive(item.children, route.path) : item.to === route.path;
       });
       return `0-${activeMenu?.to || activeMenu?.label}`;
@@ -60,7 +65,7 @@
   });
 
   if (props.isMixTop) {
-    emit('selectMixTop', config.adminMenu.find(item => Array.isArray(item.children) && isMenuChildrenActive(item.children, route.path)));
+    emit('selectMixTop', configMenu.value.find(item => Array.isArray(item.children) && isMenuChildrenActive(item.children, route.path)));
   }
 
   /**
@@ -81,7 +86,7 @@
             }}
           >
             {item.icon && <ElIcon><i class={item.icon} /></ElIcon>}
-            {t(item.label, 1, { missingWarn: false })}
+            {t(item.label!, 1, { missingWarn: false })}
           </ElMenuItem>
         );
       }
@@ -93,7 +98,7 @@
             title: () => (
               <>
                 <ElIcon><i class={item.icon ?? 'i-ant-design-appstore-outlined'} /></ElIcon>
-                {t(item.label, 1, { missingWarn: false })}
+                {t(item.label!, 1, { missingWarn: false })}
               </>
             ),
             default: () => item.children!.map(child => <RenderSubMenu item={child} level={level + 1} />),
@@ -106,7 +111,7 @@
       return (
         <ElMenuItem index={item.to}>
           {item.icon && <ElIcon><i class={item.icon} /></ElIcon>}
-          {t(item.label, 1, { missingWarn: false })}
+          {t(item.label!, 1, { missingWarn: false })}
         </ElMenuItem>
       );
     }
