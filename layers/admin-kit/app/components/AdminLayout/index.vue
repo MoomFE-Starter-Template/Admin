@@ -31,7 +31,7 @@
       <!-- 左侧菜单栏 -->
       <el-aside
         v-if="config.adminMenuMode === 'left' || (config.adminMenuMode === 'mix' && mixSideMenu)"
-        :width="config.adminMenuWidth"
+        :width="leftMenuWidth"
         b-r="1 solid [var(--el-border-color)]" p-2
       >
         <AdminMenu :is-mix-side="config.adminMenuMode === 'mix'" :mix-side-menu="mixSideMenu" />
@@ -57,6 +57,18 @@
   import type { MenuItem } from '../../types/menu';
   import MultiTabs from '../AdminMultiTabs/index.vue';
   import HeaderToolbar from './HeaderToolbar.vue';
+
+  interface Props {
+    /** Logo 容器宽度 */
+    logoWidth?: string;
+    /** 左侧菜单栏宽度 */
+    leftMenuWidth?: string;
+  }
+
+  withDefaults(defineProps<Props>(), {
+    logoWidth: '220px',
+    leftMenuWidth: '220px',
+  });
 
   const config = useAppConfig();
 

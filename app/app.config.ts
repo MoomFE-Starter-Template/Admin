@@ -39,10 +39,6 @@ export default defineAppConfig({
    */
   adminMenuMode: 'left' as 'left' | 'top' | 'mix',
   /**
-   * 后台管理左侧菜单栏宽度
-   */
-  adminMenuWidth: '220px',
-  /**
    * 后台管理菜单列表
    */
   adminMenu: <MenuItem[]>[
