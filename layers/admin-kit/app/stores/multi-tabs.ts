@@ -14,6 +14,8 @@ export const useAdminMultiTabsStore = defineStore('admin-multi-tabs', () => {
   const route = useRoute();
   const router = useRouter();
 
+  const auth = useAuthStore();
+
   const tabs = ref<MultiTab[]>([]);
 
   const activeTabIndex = computed({
@@ -34,6 +36,10 @@ export const useAdminMultiTabsStore = defineStore('admin-multi-tabs', () => {
 
     if (tab)
       return Object.assign(tab, tabInfo);
+
+    // todo:
+    //   - 只添加在 app.config.ts 中配置的 adminMenu 中的路由
+    //   - 实时更新路由信息
 
     tabs.value.push(tabInfo);
   }
@@ -85,7 +91,13 @@ export const useAdminMultiTabsStore = defineStore('admin-multi-tabs', () => {
     tabs.value.sort((a, b) => fullPaths.indexOf(a.fullPath) - fullPaths.indexOf(b.fullPath));
   }
 
-  wheneverEffectScopeImmediate(() => config.adminMultiTabs, () => {
+  // 退出登录后清空页签
+  wheneverEffectScopeImmediate(() => !auth.isLogin, () => {
+    localMultiTabs.value = [];
+    tabs.value = [];
+  });
+
+  wheneverEffectScopeImmediate(() => auth.isLogin && config.adminMultiTabs, () => {
     // 配置了页签缓存
     wheneverEffectScopeImmediate(() => config.adminMultiTabsCache, () => {
       syncRef(localMultiTabs, tabs);
