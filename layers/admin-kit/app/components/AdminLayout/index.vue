@@ -39,8 +39,10 @@
         <!-- 多页签 -->
         <MultiTabs v-if="config.adminMultiTabs" />
         <!-- 页面内容 -->
-        <div flex-grow>
-          <slot />
+        <div flex-grow relative>
+          <div size-full absolute top-0 left-0 overflow-auto>
+            <slot />
+          </div>
         </div>
       </el-main>
     </el-container>
