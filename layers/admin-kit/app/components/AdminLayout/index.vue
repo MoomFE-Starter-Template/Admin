@@ -44,6 +44,8 @@
             <slot />
           </div>
         </div>
+        <!-- 底部内容插槽 -->
+        <slot name="footer" />
       </el-main>
     </el-container>
   </el-container>
