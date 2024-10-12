@@ -4,9 +4,11 @@
     <el-header flex="~ items-center" b-b="1 solid [var(--el-border-color)]" style="--el-header-padding: 0">
       <el-container size-full b-b="1 solid [var(--el-border-color)]">
         <!-- Logo -->
-        <el-aside :width="config.adminMenuWidth" flex="~ items-center gap-5" pl-5>
-          <Logo size="size-10" />
-          {{ t(config.defaultTitle) }}
+        <el-aside class="flex-(~ items-center)" :width="logoWidth">
+          <slot name="logo">
+            <Logo size="size-10 ml-5" />
+            <span ml-5>{{ t(config.defaultTitle) }}</span>
+          </slot>
         </el-aside>
         <!-- 导航栏内容区域 -->
         <el-main class="flex! gap-5 pr-5!" style="--el-main-padding: 0">
