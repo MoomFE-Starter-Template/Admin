@@ -8,7 +8,7 @@
       }"
       @select="onMenuSelect"
     >
-      <RenderSubMenu v-for="item in menu" :key="item.label" :item="item" />
+      <RenderSubMenu v-for="item in finalMenu" :key="item.label" :item="item" />
     </el-menu>
   </div>
 </template>
@@ -26,14 +26,9 @@
     isMixTop?: boolean;
     /** 是否是混合模式的侧边菜单 ( 仅显示当前激活的一级菜单 ) */
     isMixSide?: boolean;
-    /** 混合模式的侧边菜单 */
-    mixSideMenu?: MenuItem | MenuItem[];
   }
 
   const props = defineProps<Props>();
-  const emit = defineEmits<{
-    selectMixTop: [MenuItem?];
-  }>();
 
   const config = useAppConfig();
 
@@ -42,31 +37,29 @@
   const route = useRoute();
   const router = useRouter();
 
-  const configMenu = computed(() => {
+  const menu = computed(() => {
     return initMenu(config.adminMenu ?? [], router);
   });
 
-  const menu = computed((): MenuItem[] => {
+  const finalMenu = computed((): MenuItem[] => {
     if (props.isMixSide) {
-      return toArray(props.mixSideMenu);
+      return toArray(
+        menu.value.find(item => Array.isArray(item.children) ? isMenuChildrenActive(item.children, route.path) : false),
+      );
     }
-    return configMenu.value;
+    return menu.value;
   });
 
   const activeMenu = computed(() => {
     // 混合模式的顶部菜单仅显示一级菜单, 那么子节点的激活状态也需要计算
     if (props.isMixTop) {
-      const activeMenu = configMenu.value.find((item) => {
+      const activeMenu = menu.value.find((item) => {
         return Array.isArray(item.children) ? isMenuChildrenActive(item.children, route.path) : item.to === route.path;
       });
       return `0-${activeMenu?.to || activeMenu?.label}`;
     }
     return route.path;
   });
-
-  if (props.isMixTop) {
-    emit('selectMixTop', configMenu.value.find(item => Array.isArray(item.children) && isMenuChildrenActive(item.children, route.path)));
-  }
 
   /**
    * 递归渲染子菜单
@@ -80,7 +73,6 @@
           <ElMenuItem
             index={`${level}-${item.label}`}
             onClick={() => {
-              emit('selectMixTop', item);
               const link = getMenuFirstLink(item.children!);
               if (link) navigateTo(link);
             }}
@@ -97,7 +89,7 @@
           {{
             title: () => (
               <>
-                <ElIcon><i class={item.icon ?? 'i-ant-design-appstore-outlined'} /></ElIcon>
+                {item.icon && <ElIcon><i class={item.icon} /></ElIcon>}
                 {t(item.label!, 1, { missingWarn: false })}
               </>
             ),

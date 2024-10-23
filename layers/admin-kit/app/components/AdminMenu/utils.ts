@@ -34,6 +34,10 @@ export function getMenuFirstLink(children: MenuItem[]): string | undefined {
   return link;
 }
 
+/**
+ * 初始化菜单信息
+ *  - 用于初始化菜单的 label 信息
+ */
 export function initMenu(menu: MenuItem[], router: Router): MenuItem[] {
   return menu.map((item) => {
     if (Array.isArray(item.children)) {

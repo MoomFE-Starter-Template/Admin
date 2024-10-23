@@ -17,7 +17,6 @@
             <AdminMenu
               v-if="['top', 'mix'].includes(config.adminMenuMode)"
               :is-mix-top="config.adminMenuMode === 'mix'" horizontal
-              @select-mix-top="item => mixSideMenu = item"
             />
           </div>
           <!-- 工具栏 -->
@@ -30,11 +29,11 @@
     <el-container size-full>
       <!-- 左侧菜单栏 -->
       <el-aside
-        v-if="config.adminMenuMode === 'left' || (config.adminMenuMode === 'mix' && mixSideMenu)"
+        v-if="['left', 'mix'].includes(config.adminMenuMode)"
         :width="leftMenuWidth"
         b-r="1 solid [var(--el-border-color)]" p-2
       >
-        <AdminMenu :is-mix-side="config.adminMenuMode === 'mix'" :mix-side-menu="mixSideMenu" />
+        <AdminMenu :is-mix-side="config.adminMenuMode === 'mix'" />
       </el-aside>
       <!-- 页面主体内容 -->
       <el-main flex="important:~ col" bg="#f2f3f5 dark:#3a3a3d" style="--el-main-padding: 0">
@@ -54,7 +53,6 @@
 </template>
 
 <script lang="ts" setup>
-  import type { MenuItem } from '../../types/menu';
   import MultiTabs from '../AdminMultiTabs/index.vue';
   import HeaderToolbar from './HeaderToolbar.vue';
 
@@ -73,7 +71,4 @@
   const config = useAppConfig();
 
   const { t } = useI18n();
-
-  /** 混合模式的侧边菜单 */
-  const mixSideMenu = ref<MenuItem>();
 </script>
