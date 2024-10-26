@@ -1,20 +1,20 @@
 <template>
   <!-- 跳转到 Github -->
-  <el-button size="large" text bg circle :title="t('github')">
-    <a href="https://github.com/MoomFE-Starter-Template/Admin" target="_blank" rel="noopener noreferrer">
+  <nuxt-link v-if="showGithub" to="https://github.com/MoomFE-Starter-Template/Admin" target="_blank">
+    <el-button size="large" text bg circle :title="t('github')">
       <i-mdi-github />
-    </a>
-  </el-button>
+    </el-button>
+  </nuxt-link>
 
   <!-- 切换深色模式 -->
-  <el-button size="large" text bg circle :title="t('toggle-dark-mode')" @click="theme.toggle">
+  <el-button v-if="showDarkMode" size="large" text bg circle :title="t('toggle-dark-mode')" @click="theme.toggle">
     <i-mdi-theme-light-dark v-if="theme.value === 'system'" />
     <i-ph-moon v-else-if="theme.value === 'dark'" />
     <i-ic-outline-wb-sunny v-else />
   </el-button>
 
   <!-- 切换语言 -->
-  <el-dropdown :title="t('toggle-language')" @command="code => setLocale(code)">
+  <el-dropdown v-if="showLanguage" :title="t('toggle-language')" @command="code => setLocale(code)">
     <el-button size="large" text bg circle>
       <i-ion-language />
     </el-button>
@@ -29,7 +29,7 @@
   </el-dropdown>
 
   <!-- 用户信息 -->
-  <el-dropdown @command="onCommand">
+  <el-dropdown v-if="showUser" @command="onCommand">
     <el-button class="pl-5px! pr-3!" size="large" text bg round>
       <div flex="~ items-center gap-2">
         <el-avatar :size="30" :src="auth.info.data?.avatar" :icon="UserFilled" />
@@ -39,7 +39,9 @@
 
     <template #dropdown>
       <el-dropdown-menu>
+        <slot name="userDropdownPrepend" />
         <el-dropdown-item command="logout">退出登录</el-dropdown-item>
+        <slot name="userDropdownAppend" />
       </el-dropdown-menu>
     </template>
   </el-dropdown>
@@ -47,6 +49,20 @@
 
 <script lang="ts" setup>
   import UserFilled from '~icons/ep/user-filled';
+
+  export interface Props {
+    showGithub?: boolean;
+    showDarkMode?: boolean;
+    showLanguage?: boolean;
+    showUser?: boolean;
+  }
+
+  withDefaults(defineProps<Props>(), {
+    showGithub: true,
+    showDarkMode: true,
+    showLanguage: true,
+    showUser: true,
+  });
 
   const { t, locale, locales, setLocale } = useI18n({ useScope: 'local' });
   const theme = useTheme();

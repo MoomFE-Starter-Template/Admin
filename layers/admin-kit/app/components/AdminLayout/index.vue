@@ -21,7 +21,14 @@
           </div>
           <!-- 工具栏 -->
           <div h-full flex="~ items-center none gap-3">
-            <HeaderToolbar />
+            <HeaderToolbar v-bind="headerToolbarProps">
+              <template #userDropdownPrepend>
+                <slot name="userDropdownPrepend" />
+              </template>
+              <template #userDropdownAppend>
+                <slot name="userDropdownAppend" />
+              </template>
+            </HeaderToolbar>
           </div>
         </el-main>
       </el-container>
@@ -41,7 +48,7 @@
         <MultiTabs v-if="config.adminMultiTabs" />
         <!-- 页面内容 -->
         <div flex-grow relative>
-          <div size-full absolute top-0 left-0 overflow-auto>
+          <div v-auto-animate size-full absolute top-0 left-0 overflow-auto>
             <slot />
           </div>
         </div>
@@ -54,6 +61,7 @@
 
 <script lang="ts" setup>
   import type { MenuItem } from '../../types/menu';
+  import type { Props as HeaderToolbarProps } from './HeaderToolbar.vue';
   import MultiTabs from '../AdminMultiTabs/index.vue';
   import HeaderToolbar from './HeaderToolbar.vue';
 
@@ -64,6 +72,8 @@
     logoWidth?: string;
     /** 左侧菜单栏宽度 */
     leftMenuWidth?: string;
+    /** 标题工具栏参数 */
+    headerToolbarProps?: HeaderToolbarProps;
   }
 
   withDefaults(defineProps<Props>(), {
