@@ -1,4 +1,5 @@
 import type { RouteLocationNormalized } from 'vue-router';
+import { parsePath } from 'ufo';
 
 interface MultiTab {
   fullPath: string;
@@ -125,6 +126,10 @@ export const useAdminMultiTabsStore = defineStore('admin-multi-tabs', () => {
         }
       });
     });
+    // 不记录登录页页签
+    wheneverImmediate(() => tabs.value.find(tab => parsePath(tab.fullPath).pathname === parsePath(config.loginPath).pathname), (tab) => {
+      remove(tab.fullPath);
+    });
   });
 
   return {
@@ -132,6 +137,18 @@ export const useAdminMultiTabsStore = defineStore('admin-multi-tabs', () => {
 
     activeTabIndex,
     activeTab,
+
+    /**
+     * 重新渲染标识
+     *  - 用于强制重新渲染多页签, 可用于解决某些边界情况下的渲染问题
+     *
+     * @example
+     * tabs.reRenderFlag = false;
+     * nextTick(() => {
+     *  tabs.reRenderFlag = true;
+     * });
+     */
+    reRenderFlag: ref(true),
 
     update,
     remove,

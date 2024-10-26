@@ -1,6 +1,7 @@
 <template>
   <div class="admin-multi-tabs" bg="[var(--el-bg-color)]">
     <EleTabs
+      v-if="multiTabs.reRenderFlag"
       type="simple" sortable
       :model-value="multiTabs.activeTab?.fullPath"
       :items="tabsItems"

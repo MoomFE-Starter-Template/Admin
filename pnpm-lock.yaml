@@ -56,6 +56,9 @@ importers:
       theme-colors:
         specifier: ^0.1.0
         version: 0.1.0
+      ufo:
+        specifier: ^1.5.4
+        version: 1.5.4
       vue:
         specifier: ^3.5.11
         version: 3.5.11(typescript@5.6.2)
