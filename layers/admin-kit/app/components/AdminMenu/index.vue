@@ -20,6 +20,8 @@
   import { getMenuFirstLink, initMenu, isMenuChildrenActive } from './utils';
 
   interface Props {
+    /** 外部传入的菜单, 可用于传入来自服务器的菜单 */
+    menu?: MenuItem[];
     /** 水平模式的菜单 */
     horizontal?: boolean;
     /** 是否是混合模式的顶部菜单 ( 仅显示一级菜单 ) */
@@ -38,7 +40,7 @@
   const router = useRouter();
 
   const menu = computed(() => {
-    return initMenu(config.adminMenu ?? [], router);
+    return initMenu(props.menu ?? config.adminMenu ?? [], router);
   });
 
   const finalMenu = computed((): MenuItem[] => {

@@ -53,3 +53,29 @@ export function initMenu(menu: MenuItem[], router: Router): MenuItem[] {
     };
   });
 };
+
+interface Option {
+  label: string;
+  value: string;
+};
+
+/**
+ * 获取所有可跳转的菜单路径下拉数组
+ */
+export function getAllMenuOptions(menu: MenuItem[], router?: Router): Option[] {
+  const paths: Option[] = [];
+
+  for (const item of menu) {
+    if (Array.isArray(item.children)) {
+      paths.push(...getAllMenuOptions(item.children, router));
+    }
+    else if (item.to) {
+      paths.push({
+        label: item.label ?? router?.resolve(item.to).meta.title ?? item.to,
+        value: item.to,
+      });
+    }
+  }
+
+  return paths;
+}

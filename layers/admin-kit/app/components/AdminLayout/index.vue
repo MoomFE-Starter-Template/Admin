@@ -16,7 +16,7 @@
           <div flex-grow overflow-hidden>
             <AdminMenu
               v-if="['top', 'mix'].includes(config.adminMenuMode)"
-              :is-mix-top="config.adminMenuMode === 'mix'" horizontal
+              :is-mix-top="config.adminMenuMode === 'mix'" :menu horizontal
             />
           </div>
           <!-- 工具栏 -->
@@ -33,7 +33,7 @@
         :width="leftMenuWidth"
         b-r="1 solid [var(--el-border-color)]" p-2
       >
-        <AdminMenu :is-mix-side="config.adminMenuMode === 'mix'" />
+        <AdminMenu :is-mix-side="config.adminMenuMode === 'mix'" :menu />
       </el-aside>
       <!-- 页面主体内容 -->
       <el-main flex="important:~ col" bg="#f2f3f5 dark:#3a3a3d" style="--el-main-padding: 0">
@@ -53,10 +53,13 @@
 </template>
 
 <script lang="ts" setup>
+  import type { MenuItem } from '../../types/menu';
   import MultiTabs from '../AdminMultiTabs/index.vue';
   import HeaderToolbar from './HeaderToolbar.vue';
 
   interface Props {
+    /** 外部传入的菜单, 可用于传入来自服务器的菜单 */
+    menu?: MenuItem[];
     /** Logo 容器宽度 */
     logoWidth?: string;
     /** 左侧菜单栏宽度 */
