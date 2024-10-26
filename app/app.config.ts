@@ -20,6 +20,7 @@ export default defineAppConfig({
    *  - 用于登录后的默认跳转
    */
   defaultRedirectPath: '/dashboard/workplace',
+
   /**
    * 登录页
    *  - 用户用户鉴权失效时的跳转
@@ -66,7 +67,7 @@ export default defineAppConfig({
    */
   adminMultiTabsCache: true,
   /**
-   * 后台管理主页页签路径
+   * 后台管理首页页签路径
    */
   adminMultiTabsHomePath: '/dashboard/workplace',
   /**

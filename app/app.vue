@@ -6,6 +6,10 @@
 </template>
 
 <script lang="ts" setup>
+  import { ElLoading } from 'element-plus';
+
+  const nuxtApp = useNuxtApp();
+
   const config = useAppConfig();
 
   const { t } = useI18n();
@@ -19,4 +23,6 @@
       { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
     ],
   });
+
+  nuxtApp.vueApp.use(ElLoading);
 </script>
