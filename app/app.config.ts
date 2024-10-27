@@ -15,6 +15,7 @@ export default defineAppConfig({
    *  - 用于自定义拼接网站标题生成最终的网站标题 ( 比如全局添加前缀后缀等 )
    */
   titleTemplate: (title?: string) => `${title ?? defaultTitle} - MoomFE Admin`,
+
   /**
    * 默认跳转页
    *  - 用于登录后的默认跳转
@@ -31,6 +32,11 @@ export default defineAppConfig({
    * 路由鉴权的白名单页面列表
    */
   requiresAuthWhiteList: ['/login'],
+
+  /**
+   * 接口请求基础路径
+   */
+  API_BASE_URL: 'https://apifoxmock.com/m1/4781098-4434938-default',
 
   /**
    * 后台管理菜单栏模式
