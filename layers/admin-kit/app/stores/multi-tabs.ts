@@ -17,6 +17,9 @@ export const useAdminMultiTabsStore = defineStore('admin-multi-tabs', () => {
 
   const auth = useAuthStore();
 
+  /** 多页签容器, 用于判断当前页面是否有多页签, 有的话才会进行多页签相关操作 */
+  const multiTabsWrapRef = ref<HTMLDivElement>();
+
   const tabs = ref<MultiTab[]>([]);
 
   const activeTabIndex = computed({
@@ -98,7 +101,7 @@ export const useAdminMultiTabsStore = defineStore('admin-multi-tabs', () => {
     tabs.value = [];
   });
 
-  wheneverEffectScopeImmediate(() => auth.isLogin && config.adminMultiTabs, () => {
+  wheneverEffectScopeImmediate(() => config.adminMultiTabs && auth.isLogin && !!multiTabsWrapRef.value, () => {
     // 配置了页签缓存
     wheneverEffectScopeImmediate(() => config.adminMultiTabsCache, () => {
       syncRef(localMultiTabs, tabs);
@@ -133,6 +136,8 @@ export const useAdminMultiTabsStore = defineStore('admin-multi-tabs', () => {
   });
 
   return {
+    multiTabsWrapRef,
+
     tabs,
 
     activeTabIndex,

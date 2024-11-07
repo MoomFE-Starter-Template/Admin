@@ -1,5 +1,5 @@
 <template>
-  <div class="admin-multi-tabs" bg="[var(--el-bg-color)]">
+  <div ref="multiTabsWrapRef" class="admin-multi-tabs" bg="[var(--el-bg-color)]">
     <EleTabs
       v-if="multiTabs.reRenderFlag"
       type="simple" sortable
@@ -67,6 +67,16 @@
     if (command === 'other') return multiTabs.removeOther(item!.name as string);
     if (command === 'all') return multiTabs.removeAll();
   }
+
+  const multiTabsWrapRef = ref<HTMLDivElement>();
+
+  onMounted(() => {
+    multiTabs.multiTabsWrapRef = multiTabsWrapRef.value;
+
+    onUnmounted(() => {
+      multiTabs.multiTabsWrapRef = undefined;
+    });
+  });
 </script>
 
 <style lang="scss" scoped>
