@@ -1,4 +1,6 @@
 <template>
+  <slot name="prepend" />
+
   <!-- 跳转到 Github -->
   <nuxt-link v-if="showGithub" to="https://github.com/MoomFE-Starter-Template/Admin" target="_blank">
     <el-button size="large" text bg circle :title="t('github')">
@@ -7,11 +9,16 @@
   </nuxt-link>
 
   <!-- 切换深色模式 -->
-  <el-button v-if="showDarkMode" size="large" text bg circle :title="t('toggle-dark-mode')" @click="theme.toggle">
-    <i-mdi-theme-light-dark v-if="theme.value === 'system'" />
-    <i-ph-moon v-else-if="theme.value === 'dark'" />
-    <i-ic-outline-wb-sunny v-else />
-  </el-button>
+  <el-tooltip
+    :content="{ system: '跟随系统', dark: '深色模式', light: '浅色模式' }[theme.value]"
+    placement="bottom"
+  >
+    <el-button v-if="showDarkMode" size="large" text bg circle :title="t('toggle-dark-mode')" @click="theme.toggle">
+      <i-mdi-theme-light-dark v-if="theme.value === 'system'" />
+      <i-ph-moon v-else-if="theme.value === 'dark'" />
+      <i-ic-outline-wb-sunny v-else />
+    </el-button>
+  </el-tooltip>
 
   <!-- 切换语言 -->
   <el-dropdown v-if="showLanguage" :title="t('toggle-language')" @command="code => setLocale(code)">
@@ -27,6 +34,8 @@
       </el-dropdown-menu>
     </template>
   </el-dropdown>
+
+  <slot name="center" />
 
   <!-- 用户信息 -->
   <el-dropdown v-if="showUser" @command="onCommand">
@@ -45,6 +54,8 @@
       </el-dropdown-menu>
     </template>
   </el-dropdown>
+
+  <slot name="append" />
 </template>
 
 <script lang="ts" setup>

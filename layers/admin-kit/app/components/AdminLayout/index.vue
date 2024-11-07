@@ -13,7 +13,7 @@
         <!-- 导航栏内容区域 -->
         <el-main class="flex! gap-5 pr-5!" style="--el-main-padding: 0">
           <!-- 顶部菜单栏 -->
-          <div flex-grow overflow-hidden>
+          <div class="admin-layout-header-menu" flex="~ grow items-center" px-2 overflow-hidden>
             <AdminMenu
               v-if="['top', 'mix'].includes(config.adminMenuMode)"
               :is-mix-top="config.adminMenuMode === 'mix'" :menu horizontal
@@ -22,6 +22,15 @@
           <!-- 工具栏 -->
           <div h-full flex="~ items-center none gap-3">
             <HeaderToolbar v-bind="headerToolbarProps">
+              <template #append>
+                <slot name="headerToolbarAppend" />
+              </template>
+              <template #center>
+                <slot name="headerToolbarCenter" />
+              </template>
+              <template #prepend>
+                <slot name="headerToolbarPrepend" />
+              </template>
               <template #userDropdownPrepend>
                 <slot name="userDropdownPrepend" />
               </template>
@@ -48,7 +57,7 @@
         <MultiTabs v-if="config.adminMultiTabs" />
         <!-- 页面内容 -->
         <div flex-grow relative>
-          <div v-auto-animate size-full absolute top-0 left-0 overflow-auto>
+          <div size-full absolute top-0 left-0 overflow-auto>
             <slot />
           </div>
         </div>
@@ -85,3 +94,25 @@
 
   const { t } = useI18n();
 </script>
+
+<style lang="scss" scoped>
+  .admin-layout-header-menu > .admin-menu{
+    height: 40px;
+
+    :deep(.el-menu) {
+      @apply gap-2;
+
+      .el-menu-item {
+        @apply rounded-6px b-b-0!;
+
+        &:has(.el-icon) {
+          @apply pl-2.5 pr-3.5;
+        }
+
+        &.is-active{
+          @apply bg-[var(--el-color-primary-light-9)];
+        }
+      }
+    }
+  }
+</style>

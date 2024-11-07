@@ -1,5 +1,5 @@
 <template>
-  <div class="admin-menu" :class="{ horizontal, isMixTop, isMixSide }">
+  <div class="admin-menu w-full" :class="{ horizontal, isMixTop, isMixSide }">
     <el-menu
       class="b-r-none! b-b-none!"
       :default-active="activeMenu"

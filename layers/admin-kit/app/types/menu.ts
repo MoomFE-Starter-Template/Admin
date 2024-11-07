@@ -2,6 +2,7 @@
  * 菜单项配置
  */
 export interface MenuItem {
+  id?: string;
   /**
    * 菜单名称, 也可传入 i18n 的 key
    *  - 有子菜单和当前菜单为外联时必填
