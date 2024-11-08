@@ -39,6 +39,24 @@ export default defineAppConfig({
   API_BASE_URL: 'https://apifoxmock.com/m1/4781098-4434938-default',
 
   /**
+   * 启用白屏加载动画
+   */
+  whiteScreenLoadingAnimation: true,
+  /**
+   * 白屏加载动画图片地址
+   *  - 默认为这个图标的 Data URL: https://icones.netlify.app/collection/all?s=spin&icon=svg-spinners:blocks-wave
+   * @type {string}
+   */
+  whiteScreenLoadingAnimationImage: undefined,
+  /**
+   * 白屏加载动画文本
+   *  - 默认为 'Loading ...'
+   *  - 设置为 false 则不显示文本
+   * @type {string | false}
+   */
+  whiteScreenLoadingAnimationText: undefined,
+
+  /**
    * 后台管理菜单栏模式
    *  - left: 左侧菜单栏
    *  - top: 顶部菜单栏
