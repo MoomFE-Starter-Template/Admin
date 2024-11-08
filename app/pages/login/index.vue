@@ -21,12 +21,10 @@
             :loading="auth.loginByUsername.isLoading"
             @click="login()"
           >
-            {{ $t('login.login') }}
+            {{ t('login.login') }}
           </ElButton>
         </div>
       </div>
-
-      <Footer />
     </div>
   </div>
 </template>
