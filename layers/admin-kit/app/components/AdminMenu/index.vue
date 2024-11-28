@@ -46,7 +46,7 @@
   const finalMenu = computed((): MenuItem[] => {
     if (props.isMixSide) {
       return toArray(
-        menu.value.find(item => Array.isArray(item.children) ? isMenuChildrenActive(item.children, route.path) : false),
+        menu.value.find(item => Array.isArray(item.children) ? isMenuChildrenActive(item.children, route.path) : false)?.children,
       );
     }
     return menu.value;
