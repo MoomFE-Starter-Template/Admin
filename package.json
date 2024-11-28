@@ -37,7 +37,7 @@
     "primevue": "^4.0.7",
     "theme-colors": "^0.1.0",
     "ufo": "^1.5.4",
-    "vue": "^3.5.11",
+    "vue": "^3.5.13",
     "vue-echarts": "^7.0.3",
     "vuedraggable": "^2.24.3"
   },
