@@ -9,9 +9,17 @@ export default defineNuxtRouteMiddleware(async (to) => {
   if (to.path === appConfig.loginPath) {
     const auth = useAuthStore();
 
-    if (auth.isLogin && !auth.info.isSuccess) {
-      if (!auth.info.isLoading) auth.info.execute();
+    if (auth.isLogin) {
+      // 已获取到用户信息, token 有效, 不需要再次登录, 阻止跳转
+      if (auth.info.isSuccess)
+        return abortNavigation();
 
+      // 未获取用户信息, 发起获取用户信息请求
+      if (!auth.info.isLoading)
+        auth.info.execute();
+
+      // 等待获取用户信息完成
+      // 获取成功则跳转到默认页面, 否则清空 token
       try {
         await until(() => auth.info.isFinished).toBeTruthy();
 
