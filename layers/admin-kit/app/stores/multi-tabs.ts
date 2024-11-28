@@ -1,3 +1,4 @@
+import type { Promisable } from 'type-fest';
 import type { RouteLocationNormalized } from 'vue-router';
 import { parsePath } from 'ufo';
 
@@ -12,7 +13,6 @@ const localMultiTabs = useLocalStorage<MultiTab[]>('admin-multi-tabs', []);
 export const useAdminMultiTabsStore = defineStore('admin-multi-tabs', () => {
   const config = useAppConfig();
 
-  const route = useRoute();
   const router = useRouter();
 
   const auth = useAuthStore();
@@ -23,29 +23,52 @@ export const useAdminMultiTabsStore = defineStore('admin-multi-tabs', () => {
   const tabs = ref<MultiTab[]>([]);
 
   const activeTabIndex = computed({
-    get: () => tabs.value.findIndex(tab => tab.fullPath === route.fullPath),
+    get: () => tabs.value.findIndex(tab => tab.fullPath === router.currentRoute.value.fullPath),
     set: (index: number) => {
       tabs.value[index] && navigateTo(tabs.value[index].fullPath);
     },
   });
   const activeTab = computed(() => tabs.value[activeTabIndex.value]);
 
+  let isWillUpdate = false;
+
   /** 新增/更新页签 */
-  function update(route: RouteLocationNormalized) {
-    const tab = tabs.value.find(tab => tab.fullPath === route.fullPath);
+  function update(route: RouteLocationNormalized, tabIndex?: number) {
+    const tab = tabIndex != null ? tabs.value[tabIndex] : tabs.value.find(tab => tab.fullPath === route.fullPath);
     const tabInfo: MultiTab = {
       fullPath: route.fullPath,
       title: route.meta.title,
     };
 
-    if (tab)
+    if (tab) {
+      let anotherIndex: number;
+
+      // 移除重复页签
+      if (tabIndex != null && (anotherIndex = tabs.value.findIndex((tab, i) => tab.fullPath === tabInfo.fullPath && i !== tabIndex)) > -1) {
+        tabs.value.splice(anotherIndex, 1);
+      }
+
       return Object.assign(tab, tabInfo);
+    }
 
     // todo:
-    //   - 只添加在 app.config.ts 中配置的 adminMenu 中的路由
     //   - 实时更新路由信息
 
-    tabs.value.push(tabInfo);
+    if (!isWillUpdate)
+      tabs.value.push(tabInfo);
+  }
+
+  /**
+   * 标记即将更新当前页签的路径信息
+   *  - 在传入的方法内执行路由跳转, 将会在方法执行后更新当前页签的路径信息
+   */
+  async function willUpdate(fn: () => Promisable<any>) {
+    update(router.currentRoute.value);
+    const index = activeTabIndex.value;
+    isWillUpdate = true;
+    await fn();
+    isWillUpdate = false;
+    update(router.currentRoute.value, index);
   }
 
   /** 移除页签 */
@@ -101,18 +124,12 @@ export const useAdminMultiTabsStore = defineStore('admin-multi-tabs', () => {
     tabs.value = [];
   });
 
-  wheneverEffectScopeImmediate(() => config.adminMultiTabs && auth.isLogin && !!multiTabsWrapRef.value, () => {
+  const isEnable = computed(() => config.adminMultiTabs && auth.isLogin);
+
+  wheneverEffectScopeImmediate(isEnable, () => {
     // 配置了页签缓存
     wheneverEffectScopeImmediate(() => config.adminMultiTabsCache, () => {
       syncRef(localMultiTabs, tabs);
-    });
-    // 多页签被清空时, 打开主页页签
-    wheneverEffectScopeImmediate(() => !tabs.value.length, () => {
-      router
-        .push(config.adminMultiTabsHomePath)
-        .finally(() => {
-          update(router.currentRoute.value);
-        });
     });
     // 配置了固定首页页签, 那么要保证首页页签始终存在并且在第一个位置
     wheneverEffectScopeImmediate(() => config.adminMultiTabsFixedHome, () => {
@@ -128,6 +145,17 @@ export const useAdminMultiTabsStore = defineStore('admin-multi-tabs', () => {
           tabs.value.unshift(tabs.value.splice(homeTabIndex, 1)[0]!);
         }
       });
+    });
+  });
+
+  wheneverEffectScopeImmediate(() => isEnable.value && !!multiTabsWrapRef.value, () => {
+    // 多页签被清空时, 打开主页页签
+    wheneverEffectScopeImmediate(() => !tabs.value.length, () => {
+      router
+        .push(config.adminMultiTabsHomePath)
+        .finally(() => {
+          update(router.currentRoute.value);
+        });
     });
     // 不记录登录页页签
     wheneverImmediate(() => tabs.value.find(tab => parsePath(tab.fullPath).pathname === parsePath(config.loginPath).pathname), (tab) => {
@@ -156,6 +184,7 @@ export const useAdminMultiTabsStore = defineStore('admin-multi-tabs', () => {
     reRenderFlag: ref(true),
 
     update,
+    willUpdate,
     remove,
     removeLeft,
     removeRight,
