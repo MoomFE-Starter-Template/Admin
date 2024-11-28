@@ -8,6 +8,14 @@
     </el-button>
   </nuxt-link>
 
+  <!-- 全屏 -->
+  <el-tooltip v-if="fullscreen.isSupported" content="全屏" placement="bottom">
+    <el-button size="large" text bg circle @click="fullscreen.toggle()">
+      <i-ant-design-fullscreen-exit-outlined v-if="fullscreen.isFullscreen" class="size-5" />
+      <i-ant-design-fullscreen-outlined v-else class="size-5" />
+    </el-button>
+  </el-tooltip>
+
   <!-- 切换深色模式 -->
   <el-tooltip
     :content="{ system: '跟随系统', dark: '深色模式', light: '浅色模式' }[theme.value]"
@@ -63,6 +71,7 @@
 
   export interface Props {
     showGithub?: boolean;
+    showFullscreen?: boolean;
     showDarkMode?: boolean;
     showLanguage?: boolean;
     showUser?: boolean;
@@ -78,6 +87,8 @@
   const { t, locale, locales, setLocale } = useI18n({ useScope: 'local' });
   const theme = useTheme();
   const auth = useAuthStore();
+
+  const fullscreen = reactive(useFullscreen());
 
   async function onCommand(command: string) {
     // 退出登录

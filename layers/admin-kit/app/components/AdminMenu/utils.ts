@@ -85,16 +85,16 @@ export function getAllMenuOptions(menu: MenuItem[], router?: Router): MenuOption
   const paths: MenuOption[] = [];
 
   for (const item of menu) {
-    if (Array.isArray(item.children)) {
-      paths.push(...getAllMenuOptions(item.children, router));
-    }
-    else if (item.to) {
+    if (item.to) {
       paths.push({
         id: item.id,
         label: item.label ?? router?.resolve(item.to).meta.title ?? item.to,
         icon: item.icon,
         value: item.to,
       });
+    }
+    else if (Array.isArray(item.children)) {
+      paths.push(...getAllMenuOptions(item.children, router));
     }
   }
 
