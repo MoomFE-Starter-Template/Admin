@@ -9,7 +9,7 @@
   </nuxt-link>
 
   <!-- 全屏 -->
-  <el-tooltip v-if="fullscreen.isSupported" content="全屏" placement="bottom">
+  <el-tooltip v-if="showFullscreen && fullscreen.isSupported" content="全屏" placement="bottom">
     <el-button size="large" text bg circle @click="fullscreen.toggle()">
       <i-ant-design-fullscreen-exit-outlined v-if="fullscreen.isFullscreen" class="size-5" />
       <i-ant-design-fullscreen-outlined v-else class="size-5" />
@@ -79,6 +79,7 @@
 
   withDefaults(defineProps<Props>(), {
     showGithub: true,
+    showFullscreen: true,
     showDarkMode: true,
     showLanguage: true,
     showUser: true,
