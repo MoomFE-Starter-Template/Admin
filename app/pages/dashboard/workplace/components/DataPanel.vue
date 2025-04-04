@@ -1,5 +1,5 @@
 <template>
-  <MixteListAutoGrid :list="data" item-width="180" gap="16">
+  <MixteAutoGrid :list="data" item-width="180" gap="16">
     <template #default="{ item }">
       <div flex gap-2>
         <el-avatar :src="item.icon" size="large" class="bg-#f2f3f5!" />
@@ -10,11 +10,11 @@
         </el-statistic>
       </div>
     </template>
-  </MixteListAutoGrid>
+  </MixteAutoGrid>
 </template>
 
 <script lang="ts" setup>
-  import { MixteListAutoGrid } from '@mixte/components/list-auto-grid';
+  import { MixteAutoGrid } from '@mixte/components/auto-grid';
 
   const data = [
     {
