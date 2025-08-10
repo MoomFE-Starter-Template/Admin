@@ -2,7 +2,7 @@
   "name": "moomfe-admin",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@10.0.0",
   "author": "Wei Zhang <https://github.com/Zhang-Wei-666>",
   "homepage": "https://github.com/MoomFE-Starter-Template/Admin",
   "scripts": {
@@ -59,7 +59,7 @@
     "nuxt": "^3.16.2",
     "pathe": "^2.0.3",
     "picomatch": "^4.0.3",
-    "pnpm": "^9.15.9",
+    "pnpm": "^10.0.0",
     "sass": "^1.89.2",
     "tsx": "^4.20.3",
     "type-fest": "^4.41.0",

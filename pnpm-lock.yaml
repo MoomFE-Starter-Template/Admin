@@ -124,8 +124,8 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3
       pnpm:
-        specifier: ^9.15.9
-        version: 9.15.9
+        specifier: ^10.0.0
+        version: 10.14.0
       sass:
         specifier: ^1.89.2
         version: 1.89.2
@@ -4023,8 +4023,8 @@ packages:
   pnpm-workspace-yaml@0.3.1:
     resolution: {integrity: sha512-3nW5RLmREmZ8Pm8MbPsO2RM+99RRjYd25ynj3NV0cFsN7CcEl4sDFzgoFmSyduFwxFQ2Qbu3y2UdCh6HlyUOeA==}
 
-  pnpm@9.15.9:
-    resolution: {integrity: sha512-aARhQYk8ZvrQHAeSMRKOmvuJ74fiaR1p5NQO7iKJiClf1GghgbrlW1hBjDolO95lpQXsfF+UA+zlzDzTfc8lMQ==}
+  pnpm@10.14.0:
+    resolution: {integrity: sha512-rSenlkG0nD5IGhaoBbqnGBegS74Go40X5g4urug/ahRsamiBJfV5LkjdW6MOfaUqXNpMOZK5zPMz+c4iOvhHSA==}
     engines: {node: '>=18.12'}
     hasBin: true
 
@@ -10017,7 +10017,7 @@ snapshots:
     dependencies:
       yaml: 2.7.1
 
-  pnpm@9.15.9: {}
+  pnpm@10.14.0: {}
 
   postcss-calc@10.1.1(postcss@8.5.3):
     dependencies:
@@ -11304,7 +11304,7 @@ snapshots:
       '@webassemblyjs/ast': 1.14.1
       '@webassemblyjs/wasm-edit': 1.14.1
       '@webassemblyjs/wasm-parser': 1.14.1
-      acorn: 8.14.1
+      acorn: 8.15.0
       browserslist: 4.24.4
       chrome-trace-event: 1.0.4
       enhanced-resolve: 5.18.1
