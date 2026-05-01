@@ -44,7 +44,7 @@
   "devDependencies": {
     "@element-plus/nuxt": "^1.1.5",
     "@iconify/json": "^2.2.468",
-    "@moomfe/eslint-config": "^3.5.0",
+    "@moomfe/eslint-config": "^3.7.4",
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/i18n": "^9.5.6",
     "@pinia/nuxt": "^0.11.3",
@@ -53,7 +53,7 @@
     "@types/picomatch": "^4.0.3",
     "@unocss/nuxt": "^66.6.8",
     "@vueuse/nuxt": "^13.0.0",
-    "eslint": "^9.32.0",
+    "eslint": "^9.39.4",
     "fast-glob": "^3.3.3",
     "html-minifier-terser": "^7.2.0",
     "nuxt": "^3.16.2",
