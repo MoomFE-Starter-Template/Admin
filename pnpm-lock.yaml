@@ -60,8 +60,8 @@ importers:
         specifier: ^0.1.0
         version: 0.1.0
       ufo:
-        specifier: ^1.6.3
-        version: 1.6.3
+        specifier: ^1.6.4
+        version: 1.6.4
       vue:
         specifier: ^3.5.33
         version: 3.5.33(typescript@5.9.3)
@@ -76,8 +76,8 @@ importers:
         specifier: ^1.1.5
         version: 1.1.5(@element-plus/icons-vue@2.3.2(vue@3.5.33(typescript@5.9.3)))(element-plus@2.13.7(typescript@5.9.3)(vue@3.5.33(typescript@5.9.3)))(magicast@0.3.5)
       '@iconify/json':
-        specifier: ^2.2.464
-        version: 2.2.464
+        specifier: ^2.2.468
+        version: 2.2.468
       '@moomfe/eslint-config':
         specifier: ^3.5.0
         version: 3.5.0(@typescript-eslint/utils@8.29.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.9.3))(@vue/compiler-sfc@3.5.33)(jiti@2.4.2)
@@ -121,7 +121,7 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3
       picomatch:
-        specifier: ^4.0.3
+        specifier: ^4.0.4
         version: 4.0.4
       pnpm:
         specifier: ^9.15.9
@@ -864,8 +864,8 @@ packages:
     resolution: {integrity: sha512-xeO57FpIu4p1Ri3Jq/EXq4ClRm86dVF2z/+kvFnyqVYRavTZmaFaUBbWCOuuTh0o/g7DSsk6kc2vrS4Vl5oPOQ==}
     engines: {node: '>=18.18'}
 
-  '@iconify/json@2.2.464':
-    resolution: {integrity: sha512-VSU7hPHuqqEwQk8Hmy+88iGmsL6KE2JAv1ZwxE0z50+JpymIzhZMHcuSrL2MOFtTDZQ4eJ7Ao9Hdm+TCctDwCQ==}
+  '@iconify/json@2.2.468':
+    resolution: {integrity: sha512-vfW6JQdYiHAFnCRZN6H5uzObcFBTaAguNaKqUpeazDLz5DO7R2UM8StyM/+v8d8KP15SfrQzG9aZy4uF9lViVQ==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -5474,8 +5474,8 @@ packages:
   uc.micro@2.1.0:
     resolution: {integrity: sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A==}
 
-  ufo@1.6.3:
-    resolution: {integrity: sha512-yDJTmhydvl5lJzBmy/hyOAA0d+aqCBuwl818haVdYCRrWV84o7YyeVm4QlVHStqNrrJSTb6jKuFAVqAFsr+K3Q==}
+  ufo@1.6.4:
+    resolution: {integrity: sha512-JFNbkD1Svwe0KvGi8GOeLcP4kAWQ609twvCdcHxq1oSL8svv39ZuSvajcD8B+5D0eL4+s1Is2D/O6KN3qcTeRA==}
 
   ultrahtml@1.6.0:
     resolution: {integrity: sha512-R9fBn90VTJrqqLDwyMph+HGne8eqY1iPfYhPzZrvKpIfwkWZbcYlfpsb8B9dTvBfpy1/hqAD7Wi8EKfP9e8zdw==}
@@ -6694,7 +6694,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.2': {}
 
-  '@iconify/json@2.2.464':
+  '@iconify/json@2.2.468':
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 2.0.3
@@ -7020,7 +7020,7 @@ snapshots:
       semver: 7.7.1
       std-env: 3.9.0
       tinyexec: 1.0.1
-      ufo: 1.6.3
+      ufo: 1.6.4
       youch: 4.1.0-beta.6
     transitivePeerDependencies:
       - magicast
@@ -7108,7 +7108,7 @@ snapshots:
       scule: 1.3.0
       semver: 7.7.1
       std-env: 3.9.0
-      ufo: 1.6.3
+      ufo: 1.6.4
       unctx: 2.4.1
       unimport: 4.1.3
       untyped: 2.0.0
@@ -7135,7 +7135,7 @@ snapshots:
       semver: 7.7.2
       std-env: 3.9.0
       tinyglobby: 0.2.14
-      ufo: 1.6.3
+      ufo: 1.6.4
       unctx: 2.4.1
       unimport: 5.0.1
       untyped: 2.0.0
@@ -7161,7 +7161,7 @@ snapshots:
       scule: 1.3.0
       semver: 7.7.4
       tinyglobby: 0.2.16
-      ufo: 1.6.3
+      ufo: 1.6.4
       unctx: 2.5.0
       untyped: 2.0.0
     transitivePeerDependencies:
@@ -7219,7 +7219,7 @@ snapshots:
       postcss: 8.5.3
       rollup-plugin-visualizer: 5.14.0(rollup@4.39.0)
       std-env: 3.9.0
-      ufo: 1.6.3
+      ufo: 1.6.4
       unenv: 2.0.0-rc.15
       unplugin: 2.3.5
       vite: 6.2.5(@types/node@25.6.0)(jiti@2.4.2)(sass@1.89.2)(terser@5.46.1)(tsx@4.21.0)(yaml@2.7.1)
@@ -7283,7 +7283,7 @@ snapshots:
       oxc-parser: 0.70.0
       pathe: 2.0.3
       typescript: 5.9.3
-      ufo: 1.6.3
+      ufo: 1.6.4
       unplugin: 2.3.5
       unplugin-vue-router: 0.12.0(vue-router@4.5.1(vue@3.5.33(typescript@5.9.3)))(vue@3.5.33(typescript@5.9.3))
       vue-i18n: 10.0.7(vue@3.5.33(typescript@5.9.3))
@@ -9808,7 +9808,7 @@ snapshots:
       enhanced-resolve: 5.18.1
       mlly: 1.8.2
       pathe: 1.1.2
-      ufo: 1.6.3
+      ufo: 1.6.4
 
   fast-deep-equal@3.1.3: {}
 
@@ -9983,7 +9983,7 @@ snapshots:
       iron-webcrypto: 1.2.1
       node-mock-http: 1.0.0
       radix3: 1.1.2
-      ufo: 1.6.3
+      ufo: 1.6.4
       uncrypto: 0.1.3
 
   has-flag@4.0.0: {}
@@ -10257,7 +10257,7 @@ snapshots:
       node-forge: 1.3.1
       pathe: 1.1.2
       std-env: 3.9.0
-      ufo: 1.6.3
+      ufo: 1.6.4
       untun: 0.1.3
       uqr: 0.1.2
 
@@ -10699,14 +10699,14 @@ snapshots:
       acorn: 8.14.1
       pathe: 2.0.3
       pkg-types: 1.3.1
-      ufo: 1.6.3
+      ufo: 1.6.4
 
   mlly@1.8.2:
     dependencies:
       acorn: 8.16.0
       pathe: 2.0.3
       pkg-types: 1.3.1
-      ufo: 1.6.3
+      ufo: 1.6.4
 
   mocked-exports@0.1.1: {}
 
@@ -10791,7 +10791,7 @@ snapshots:
       serve-static: 1.16.2
       source-map: 0.7.4
       std-env: 3.9.0
-      ufo: 1.6.3
+      ufo: 1.6.4
       ultrahtml: 1.6.0
       uncrypto: 0.1.3
       unctx: 2.4.1
@@ -10932,7 +10932,7 @@ snapshots:
       std-env: 3.9.0
       strip-literal: 3.0.0
       tinyglobby: 0.2.12
-      ufo: 1.6.3
+      ufo: 1.6.4
       ultrahtml: 1.6.0
       uncrypto: 0.1.3
       unctx: 2.4.1
@@ -11013,7 +11013,7 @@ snapshots:
     dependencies:
       destr: 2.0.5
       node-fetch-native: 1.6.6
-      ufo: 1.6.3
+      ufo: 1.6.4
 
   ohash@2.0.11: {}
 
@@ -12362,7 +12362,7 @@ snapshots:
 
   uc.micro@2.1.0: {}
 
-  ufo@1.6.3: {}
+  ufo@1.6.4: {}
 
   ultrahtml@1.6.0: {}
 
@@ -12396,7 +12396,7 @@ snapshots:
       exsolve: 1.0.5
       ohash: 2.0.11
       pathe: 2.0.3
-      ufo: 1.6.3
+      ufo: 1.6.4
 
   unhead@2.0.3:
     dependencies:
@@ -12642,7 +12642,7 @@ snapshots:
       lru-cache: 10.4.3
       node-fetch-native: 1.6.6
       ofetch: 1.4.1
-      ufo: 1.6.3
+      ufo: 1.6.4
     optionalDependencies:
       db0: 0.3.1
       ioredis: 5.6.0
@@ -12791,7 +12791,7 @@ snapshots:
 
   vue-bundle-renderer@2.1.1:
     dependencies:
-      ufo: 1.6.3
+      ufo: 1.6.4
 
   vue-component-type-helpers@3.2.7: {}
 
