@@ -29,7 +29,7 @@
     "@vueuse/math": "^13.0.0",
     "dayjs": "^1.11.23",
     "echarts": "^5.6.0",
-    "ele-admin-plus": "^1.6.0",
+    "ele-admin-plus": "^1.7.0",
     "element-plus": "^2.13.7",
     "lodash-unified": "^1.0.3",
     "mixte": "^3.6.0",
@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@element-plus/nuxt": "^1.1.5",
-    "@iconify/json": "^2.2.524",
+    "@iconify/json": "^2.2.551",
     "@moomfe/eslint-config": "^3.5.0",
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/i18n": "^9.5.6",

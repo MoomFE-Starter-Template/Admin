@@ -39,8 +39,8 @@ importers:
         specifier: ^5.6.0
         version: 5.6.0
       ele-admin-plus:
-        specifier: ^1.6.0
-        version: 1.6.0(element-plus@2.13.7(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3))
+        specifier: ^1.7.0
+        version: 1.7.0(element-plus@2.13.7(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3))
       element-plus:
         specifier: ^2.13.7
         version: 2.13.7(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3))
@@ -76,8 +76,8 @@ importers:
         specifier: ^1.1.5
         version: 1.1.5(@element-plus/icons-vue@2.3.2(vue@3.5.42(typescript@5.9.3)))(element-plus@2.13.7(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(magicast@0.3.5)
       '@iconify/json':
-        specifier: ^2.2.524
-        version: 2.2.524
+        specifier: ^2.2.551
+        version: 2.2.551
       '@moomfe/eslint-config':
         specifier: ^3.5.0
         version: 3.5.0(@typescript-eslint/utils@8.29.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.9.3))(@vue/compiler-sfc@3.5.42)(jiti@2.4.2)
@@ -871,8 +871,8 @@ packages:
     resolution: {integrity: sha512-xeO57FpIu4p1Ri3Jq/EXq4ClRm86dVF2z/+kvFnyqVYRavTZmaFaUBbWCOuuTh0o/g7DSsk6kc2vrS4Vl5oPOQ==}
     engines: {node: '>=18.18'}
 
-  '@iconify/json@2.2.524':
-    resolution: {integrity: sha512-xw2TRuiRcOzx8mTXRNIfg9FYr4sd7Z7s/DGKitJZt3njeiFmjHte8qKWEGK+IePYtQ1QyVnhfOi+5sEjVTmvDQ==}
+  '@iconify/json@2.2.551':
+    resolution: {integrity: sha512-V+eqWf/1TcgubkOLoml7Gri6HAk8IelqwIglY7LQuM8G14IuYa7VfHd17bMHcz6Oe81vugsETaJCuBL8iIabQw==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -3154,8 +3154,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  ele-admin-plus@1.6.0:
-    resolution: {integrity: sha512-S5BEqw2oUzW1zT21nzY2JhbsO1zHNjPJUqfeCUinI7sBotEUL1+wVPxnOH1vGKyZNSnjgts5517v0Ll+9YV09g==}
+  ele-admin-plus@1.7.0:
+    resolution: {integrity: sha512-FkFNLqN6h6KDddI9e4lIunnT3HTXcy6gV/+bIovI/HtNRHB0VV1aEkCbdWZMXMSD2MKBcG3hJjPnmu2wANv8Gg==}
     peerDependencies:
       element-plus: '>=2.7.0'
       vue: '>=3.1.0'
@@ -6870,7 +6870,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.2': {}
 
-  '@iconify/json@2.2.524':
+  '@iconify/json@2.2.551':
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 2.0.3
@@ -9589,7 +9589,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  ele-admin-plus@1.6.0(element-plus@2.13.7(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3)):
+  ele-admin-plus@1.7.0(element-plus@2.13.7(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3)):
     dependencies:
       element-plus: 2.13.7(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
